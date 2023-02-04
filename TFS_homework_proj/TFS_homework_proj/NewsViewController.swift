@@ -7,11 +7,15 @@
 
 import UIKit
 
+import Foundation
+
 class NewsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var articlesInfo: Article?
+    
+    let articlesInfoController = ArticlesInfoController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,38 +30,14 @@ class NewsViewController: UIViewController {
         
         Task {
             do {
-                articlesInfo = try await fetchArticles()
-//                if let firstarticletitle = articlesInfo?.articles?[0].title {
-//                    print("Fetch first title: \(firstarticletitle)")
-//                }
+                articlesInfo = try await articlesInfoController.fetchArticles()
+//                articlesInfo = try await fetchArticles() // old
                 tableView.reloadData()
                 } catch {
                     print("Fetch news failed with error: \(error)") // отображение ошибок сделать ??? (с.420)
                 }
         }
-        
-
-    
     }
-    
-    func fetchArticles() async throws -> Article {
-        
-        let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&category=business&page=0&pageSize=20&apiKey=10783ccdd9584cb2ba601864a3f6d46b")!
-
-
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw fetchArticlesError.itemsNotFound // нужна ли функция, обработка исключения (вывод на экран алерта,..)
-            
-        }
-        
-        let jsonDecoder = JSONDecoder()
-        let article = try jsonDecoder.decode(Article.self, from: data)
-    //    print(article)
-        return(article)
-    }
-    
 }
 
 extension NewsViewController: UITableViewDelegate{
@@ -66,14 +46,10 @@ extension NewsViewController: UITableViewDelegate{
 
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
-//        print("Count  \(articlesInfo?.totalResults)")
         
         if let count = self.articlesInfo?.articles?.count {
-//            print("Count in NumberofRows: \(count)")
             return count
         }
-//        print(0)
         return 0
     }
     
@@ -86,54 +62,22 @@ extension NewsViewController: UITableViewDataSource {
         cell.newsTitleLabel.text = article?.title
         cell.newsSeenLabel.text = "Seen 10 times"
         
-        if let articleURL = article?.urlToImage {
-            if let imageURL = URL(string: articleURL) {
-                if let imageData = try? Data(contentsOf: imageURL) {
-                    if let loadedImage = UIImage(data: imageData) {
-                        cell.newsImageView.image = loadedImage
+        Task {
+            do {
+                if let stringURL = article?.urlToImage {
+                    if let imageURL = URL(string: stringURL) {
+                        let image = try await articlesInfoController.fetchImage(from: imageURL)
+                        cell.newsImageView.image = image
                     }
                 }
+            } catch {
+//              updateUI(with: error)
             }
+
         }
-
-            Task {
-                do {
-                    articlesInfo = try await fetchArticles()
-                    tableView.reloadData()
-                    } catch {
-                        print("Fetch news failed with error: \(error)") // отображение ошибок сделать ??? (с.420)
-                    }
-            }
-        
-        
-
         
         return cell
     }
     
 }
-
-
-
-enum fetchArticlesError: Error, LocalizedError {
-    case itemsNotFound
-}
-
-
-
-
-//extension NewsViewController:  NewsModernProtocol{
-//
-//    //MARK: - Article Model Protocol Methods
-//
-//    func oneNewsRetrived(_ news: [News]) {
-//
-//        // Set the articles property of the view controller to the articless passed back from the model
-//        self.newsArr = news
-//
-//        // Refresh the tableview
-//        tableView.reloadData()
-//    }
-//
-//}
 
