@@ -17,7 +17,6 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
 
         title = "News"
-        
         view.backgroundColor = .green
         
         tableView.register(UINib(nibName: String(describing: NewsTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NewsTableViewCell.self))
@@ -28,9 +27,9 @@ class NewsViewController: UIViewController {
         Task {
             do {
                 articlesInfo = try await fetchArticles()
-                if let firstarticletitle = articlesInfo?.articles?[0].title {
-                    print("Fetch first title: \(firstarticletitle)")
-                }
+//                if let firstarticletitle = articlesInfo?.articles?[0].title {
+//                    print("Fetch first title: \(firstarticletitle)")
+//                }
                 tableView.reloadData()
                 } catch {
                     print("Fetch news failed with error: \(error)") // отображение ошибок сделать ??? (с.420)
@@ -49,7 +48,7 @@ class NewsViewController: UIViewController {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            throw fetchArticlesError.itemsNotFound
+            throw fetchArticlesError.itemsNotFound // нужна ли функция, обработка исключения (вывод на экран алерта,..)
             
         }
         
@@ -65,10 +64,10 @@ extension NewsViewController: UITableViewDelegate{
     
 }
 
-extension NewsViewController: UITableViewDataSource{
+extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        print("Count  \(articlesInfo?.totalResults)")
+//        print("Count  \(articlesInfo?.totalResults)")
         
         if let count = self.articlesInfo?.articles?.count {
 //            print("Count in NumberofRows: \(count)")
@@ -84,14 +83,37 @@ extension NewsViewController: UITableViewDataSource{
         // Get the article that the tableView is asking about
         let article = articlesInfo?.articles?[indexPath.row]
         
-        //можно ли так делать
         cell.newsTitleLabel.text = article?.title
         cell.newsSeenLabel.text = "Seen 10 times"
+        
+        if let articleURL = article?.urlToImage {
+            if let imageURL = URL(string: articleURL) {
+                if let imageData = try? Data(contentsOf: imageURL) {
+                    if let loadedImage = UIImage(data: imageData) {
+                        cell.newsImageView.image = loadedImage
+                    }
+                }
+            }
+        }
+
+            Task {
+                do {
+                    articlesInfo = try await fetchArticles()
+                    tableView.reloadData()
+                    } catch {
+                        print("Fetch news failed with error: \(error)") // отображение ошибок сделать ??? (с.420)
+                    }
+            }
+        
+        
+
+        
         return cell
     }
     
-    
 }
+
+
 
 enum fetchArticlesError: Error, LocalizedError {
     case itemsNotFound

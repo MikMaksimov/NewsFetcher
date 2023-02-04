@@ -9,21 +9,13 @@ import Foundation
 
 struct Article: Decodable {
     
-//    var author:String?
-//    var title:String?
-//    var description:String?
-//    var url:String?
-//    var urlToImage:String?
-//    var publishedAt:String?
-    
-//    var status: String?
-    var totalResults: Int?
+    var totalResults: Int? // необходимость?
     var articles: [SomeArticle]?
 }
 
 extension Article {
     struct SomeArticle: Decodable {
-        var author: String?
         var title: String?
+        var urlToImage: String?
     }
 }
