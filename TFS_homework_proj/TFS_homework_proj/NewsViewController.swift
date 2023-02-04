@@ -21,7 +21,7 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
 
         title = "News"
-        view.backgroundColor = .green
+//        view.backgroundColor = .green
         
         tableView.register(UINib(nibName: String(describing: NewsTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NewsTableViewCell.self))
         
@@ -31,7 +31,6 @@ class NewsViewController: UIViewController {
         Task {
             do {
                 articlesInfo = try await articlesInfoController.fetchArticles()
-//                articlesInfo = try await fetchArticles() // old
                 tableView.reloadData()
                 } catch {
                     print("Fetch news failed with error: \(error)") // отображение ошибок сделать ??? (с.420)
@@ -45,8 +44,10 @@ extension NewsViewController: UITableViewDelegate{
 }
 
 extension NewsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        //поменять на обработку исключения..?
         if let count = self.articlesInfo?.articles?.count {
             return count
         }
@@ -56,7 +57,6 @@ extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NewsTableViewCell.self)) as! NewsTableViewCell
         
-        // Get the article that the tableView is asking about
         let article = articlesInfo?.articles?[indexPath.row]
         
         cell.newsTitleLabel.text = article?.title
