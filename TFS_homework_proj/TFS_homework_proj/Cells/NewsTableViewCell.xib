@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="KGk-i7-Jjw" customClass="NewsTableViewCell" customModule="TFS_homework_proj" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="84"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gxy-Ol-FgM">
+                        <rect key="frame" x="5" y="5" width="74" height="74"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="94o-Q8-3lf"/>
+                            <constraint firstAttribute="width" secondItem="Gxy-Ol-FgM" secondAttribute="height" multiplier="1:1" id="eXL-A4-PBT"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJD-dn-fEV">
+                        <rect key="frame" x="84" y="5" width="271" height="74"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-EL-ZHk" userLabel="News Title Label">
+                                <rect key="frame" x="0.0" y="0.0" width="229.5" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SH-hi-vxj" userLabel="News Seen Label">
+                                <rect key="frame" x="229.5" y="0.0" width="41.5" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rJD-dn-fEV" firstAttribute="leading" secondItem="Gxy-Ol-FgM" secondAttribute="trailing" constant="5" id="8GI-TG-4h4"/>
+                    <constraint firstItem="rJD-dn-fEV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="A5O-Fo-ZzR"/>
+                    <constraint firstAttribute="trailing" secondItem="rJD-dn-fEV" secondAttribute="trailing" constant="5" id="Ms3-O0-4ow"/>
+                    <constraint firstAttribute="bottom" secondItem="Gxy-Ol-FgM" secondAttribute="bottom" constant="5" id="TQD-hy-KJ0"/>
+                    <constraint firstAttribute="bottom" secondItem="rJD-dn-fEV" secondAttribute="bottom" constant="5" id="f1u-zL-UeE"/>
+                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="o7S-aW-BaX"/>
+                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="yQO-Gg-N0A"/>
+                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="zrH-Me-RPe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="newsImageView" destination="Gxy-Ol-FgM" id="k5u-im-JsE"/>
+                <outlet property="newsSeenLabel" destination="3SH-hi-vxj" id="zvG-qe-gbV"/>
+                <outlet property="newsTitleLabel" destination="xFd-EL-ZHk" id="918-bz-a0V"/>
+            </connections>
+            <point key="canvasLocation" x="166.66666666666669" y="111.16071428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -16,7 +16,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+//        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+//        let navgiationController = UINavigationController()
+//        let newsViewController = NewsViewController()
+//        navgiationController.pushViewController(newsViewController, animated: true)
+
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.makeKeyAndVisible()
+        let newsViewController = NewsViewController()
+        let navigationController = UINavigationController(rootViewController: newsViewController)
+        window?.rootViewController = navigationController
+        
+        
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        let navgiationController = UINavigationController()
+//        let newsViewController = NewsViewController()
+//        navgiationController.pushViewController(newsViewController, animated: false)
+//        window!.root ViewController = navgiationController
+//        window!.makeKeyAndVisible()
+        
+        
+        
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//
+//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//        window?.windowScene = windowScene
+//        window?.makeKeyAndVisible()
+//        window?.rootViewController = NewsViewController()
+//
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
