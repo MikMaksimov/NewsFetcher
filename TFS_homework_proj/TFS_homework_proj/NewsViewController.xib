@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController" customModule="TFS_homework_proj" customModuleProvider="target">
             <connections>
+                <outlet property="emptyImage" destination="d7Q-Qh-e03" id="FHK-kK-l8p"/>
+                <outlet property="emptyLabel" destination="Jco-Ve-DE4" id="awd-kn-6H5"/>
+                <outlet property="emptyStateView" destination="gpa-Cj-WW2" id="Qx5-d7-4CV"/>
                 <outlet property="tableView" destination="l4l-Nu-XUL" id="xcT-MN-dlf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,6 +27,35 @@
                     <rect key="frame" x="5" y="49" width="404" height="808"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpa-Cj-WW2">
+                    <rect key="frame" x="16" y="382" width="382" height="132.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d7Q-Qh-e03">
+                            <rect key="frame" x="141" y="0.0" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="azY-AO-eDi"/>
+                                <constraint firstAttribute="width" constant="100" id="xB9-Uh-da3"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jco-Ve-DE4">
+                            <rect key="frame" x="0.0" y="112" width="382" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d7Q-Qh-e03" secondAttribute="trailing" id="4Z2-52-AZq"/>
+                        <constraint firstItem="Jco-Ve-DE4" firstAttribute="top" secondItem="d7Q-Qh-e03" secondAttribute="bottom" constant="12" id="AFy-9b-NN6"/>
+                        <constraint firstItem="d7Q-Qh-e03" firstAttribute="top" secondItem="gpa-Cj-WW2" secondAttribute="top" id="D01-7H-jJP"/>
+                        <constraint firstAttribute="bottom" secondItem="Jco-Ve-DE4" secondAttribute="bottom" id="PfH-Kj-CuQ"/>
+                        <constraint firstItem="d7Q-Qh-e03" firstAttribute="centerX" secondItem="gpa-Cj-WW2" secondAttribute="centerX" id="U1J-x8-Zig"/>
+                        <constraint firstItem="d7Q-Qh-e03" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gpa-Cj-WW2" secondAttribute="leading" id="f3q-qn-jBP"/>
+                        <constraint firstItem="Jco-Ve-DE4" firstAttribute="leading" secondItem="gpa-Cj-WW2" secondAttribute="leading" id="rfk-E2-aNs"/>
+                        <constraint firstAttribute="trailing" secondItem="Jco-Ve-DE4" secondAttribute="trailing" id="rz8-ag-1NI"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -30,6 +63,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l4l-Nu-XUL" secondAttribute="trailing" constant="5" id="9DA-mA-t2V"/>
                 <constraint firstItem="l4l-Nu-XUL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="BLQ-oa-4lB"/>
                 <constraint firstItem="l4l-Nu-XUL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="UQd-LY-KCi"/>
+                <constraint firstItem="gpa-Cj-WW2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="UqS-L2-TfP"/>
+                <constraint firstItem="gpa-Cj-WW2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k0B-c5-qqQ"/>
+                <constraint firstItem="gpa-Cj-WW2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lbE-Yp-kx7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gpa-Cj-WW2" secondAttribute="trailing" constant="16" id="wIr-Q3-pWa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l4l-Nu-XUL" secondAttribute="bottom" constant="5" id="xKN-tu-Wnf"/>
             </constraints>
             <point key="canvasLocation" x="139" y="80"/>

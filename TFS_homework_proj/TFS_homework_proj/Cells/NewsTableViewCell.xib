@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,40 +19,41 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gxy-Ol-FgM">
-                        <rect key="frame" x="5" y="5" width="74" height="74"/>
+                        <rect key="frame" x="16" y="20" width="88" height="44"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="94o-Q8-3lf"/>
-                            <constraint firstAttribute="width" secondItem="Gxy-Ol-FgM" secondAttribute="height" multiplier="1:1" id="eXL-A4-PBT"/>
+                            <constraint firstAttribute="width" secondItem="Gxy-Ol-FgM" secondAttribute="height" multiplier="2:1" id="eXL-A4-PBT"/>
+                            <constraint firstAttribute="height" constant="44" id="nBa-3O-lrc"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJD-dn-fEV">
-                        <rect key="frame" x="84" y="5" width="271" height="74"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rJD-dn-fEV">
+                        <rect key="frame" x="116" y="16" width="228" height="52"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-EL-ZHk" userLabel="News Title Label">
-                                <rect key="frame" x="0.0" y="0.0" width="229.5" height="74"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-EL-ZHk" userLabel="News Title Label">
+                                <rect key="frame" x="0.0" y="0.0" width="228" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SH-hi-vxj" userLabel="News Seen Label">
-                                <rect key="frame" x="229.5" y="0.0" width="41.5" height="74"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SH-hi-vxj" userLabel="News Seen Label">
+                                <rect key="frame" x="0.0" y="24.5" width="228" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="rJD-dn-fEV" firstAttribute="leading" secondItem="Gxy-Ol-FgM" secondAttribute="trailing" constant="5" id="8GI-TG-4h4"/>
-                    <constraint firstItem="rJD-dn-fEV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="A5O-Fo-ZzR"/>
-                    <constraint firstAttribute="trailing" secondItem="rJD-dn-fEV" secondAttribute="trailing" constant="5" id="Ms3-O0-4ow"/>
-                    <constraint firstAttribute="bottom" secondItem="Gxy-Ol-FgM" secondAttribute="bottom" constant="5" id="TQD-hy-KJ0"/>
-                    <constraint firstAttribute="bottom" secondItem="rJD-dn-fEV" secondAttribute="bottom" constant="5" id="f1u-zL-UeE"/>
+                    <constraint firstItem="rJD-dn-fEV" firstAttribute="leading" secondItem="Gxy-Ol-FgM" secondAttribute="trailing" constant="12" id="8GI-TG-4h4"/>
+                    <constraint firstItem="rJD-dn-fEV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="A5O-Fo-ZzR"/>
+                    <constraint firstAttribute="trailing" secondItem="rJD-dn-fEV" secondAttribute="trailing" constant="16" id="Ms3-O0-4ow"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gxy-Ol-FgM" secondAttribute="bottom" constant="16" id="TQD-hy-KJ0"/>
+                    <constraint firstAttribute="bottom" secondItem="rJD-dn-fEV" secondAttribute="bottom" constant="16" id="f1u-zL-UeE"/>
                     <constraint firstItem="Gxy-Ol-FgM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="o7S-aW-BaX"/>
-                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="yQO-Gg-N0A"/>
-                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="zrH-Me-RPe"/>
+                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="yQO-Gg-N0A"/>
+                    <constraint firstItem="Gxy-Ol-FgM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zrH-Me-RPe"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -64,6 +66,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
