@@ -34,3 +34,11 @@
 * Постраничная загрузка всех доступных новостей бесконечной лентой (пагинация по 20 новостей).
 * Обновлять список новостей с помощью жеста pull-to-refresh.
 * Обработка исключений. Например, отсутствие интернет-соединения.
+* Предусмотреть возможность обновления списка новостей.
+
+Скриншоты приложения
+
+<img width="332" alt="image" src="https://user-images.githubusercontent.com/36266447/229368429-d8f9eba1-1b29-4c18-a06c-83891ebedb46.png">
+<img width="332" alt="image" src="https://user-images.githubusercontent.com/36266447/229368465-7d72830c-1aa8-4b6d-beaf-4d9ad4f3481f.png">
+<img width="332" alt="image" src="https://user-images.githubusercontent.com/36266447/229368472-6c243772-0988-4752-9226-ea30a25d99ad.png">
+
