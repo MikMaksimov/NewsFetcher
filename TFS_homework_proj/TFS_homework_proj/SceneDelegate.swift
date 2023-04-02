@@ -20,10 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-//        let navgiationController = UINavigationController()
-//        let newsViewController = NewsViewController()
-//        navgiationController.pushViewController(newsViewController, animated: true)
 
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
@@ -31,25 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let newsViewController = NewsViewController()
         let navigationController = UINavigationController(rootViewController: newsViewController)
         window?.rootViewController = navigationController
-        
-        
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        let navgiationController = UINavigationController()
-//        let newsViewController = NewsViewController()
-//        navgiationController.pushViewController(newsViewController, animated: false)
-//        window!.root ViewController = navgiationController
-//        window!.makeKeyAndVisible()
-        
-        
-        
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//
-//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//        window?.windowScene = windowScene
-//        window?.makeKeyAndVisible()
-//        window?.rootViewController = NewsViewController()
-//
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
